@@ -1,0 +1,12 @@
+---
+# tasks file for ansible-cobbler
+- name: install application and dependencies
+  apt:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  with_items:
+   - cobbler
+  become: yes
+  tags:
+    - packages
