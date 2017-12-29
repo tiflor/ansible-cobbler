@@ -6,8 +6,3 @@ from_packet: false
 # source vars
 cobbler_version: 2.8.2
 cobbler_secret: change_it
-
-cobbler_webuserlist:
-    - name: cobbler
-      realm: Cobbler
-      password: "{{ 'cobbler:Cobbler:change_it'|hash('md5') }}"
