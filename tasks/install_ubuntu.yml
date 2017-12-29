@@ -1,0 +1,15 @@
+---
+# tasks to install cobbler
+
+- name: install application
+  apt:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  with_items:
+   - "{{packet_debs}}"
+  become: yes
+  when: from_packet == true
+  tags:
+    - packages
+    - install

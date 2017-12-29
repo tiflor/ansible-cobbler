@@ -1,2 +1,39 @@
 ---
 # vars file for ansible-cobbler
+
+apache2_owner: www-data
+apache2_group: www-data
+
+### vars used for source build
+cobbler_url: https://github.com/cobbler/cobbler/archive/v{{cobbler_version}}.tar.gz
+
+run_debs:
+  - python
+  - python2.7
+  - python-django
+  - python-netaddr
+  - python-yaml
+  - python-simplejson
+  - python-cheetah
+  - python-urlgrabber
+  - apache2
+  - libapache2-mod-wsgi
+  - atftpd
+build_debs:
+  - make
+
+working_dir: "/tmp/tmp_cobbler_dir"
+
+### vars used for packet installation
+
+packet_debs:
+  - cobbler
+  - cobbler-web
+
+### apache2 vars
+
+apache2_module:
+  - wsgi
+  - proxy
+  - proxy_http
+  - rewrite

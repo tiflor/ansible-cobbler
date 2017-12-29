@@ -1,2 +1,15 @@
 ---
 # handlers file for ansible-cobbler
+
+- name: restart apache2
+  service:
+    name: apache2
+    state: restarted
+  become: true
+
+- name: restart cobbler
+  service:
+    name: cobblerd
+    state: restarted
+    daemon_reload: yes
+  become: true

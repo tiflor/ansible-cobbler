@@ -1,12 +1,12 @@
 ---
 # tasks file for ansible-cobbler
-- name: install application and dependencies
-  apt:
-    name: "{{item}}"
-    state: latest
-    update_cache: yes
-  with_items:
-   - cobbler
-  become: yes
-  tags:
-    - packages
+
+# install from source when from_packet is set to false
+- include_tasks: install_src.yml
+  when: from_packet == false
+
+# install from packet if from_packet is to true and distribution is Ubunu
+- include_tasks: install_ubuntu.yml
+  when: from_packet == true && ansible_distribution == 'Ubuntu'
+
+- include_tasks: configure.yml
