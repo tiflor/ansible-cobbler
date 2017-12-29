@@ -1,6 +1,6 @@
 galaxy_info:
   author: Jörg Klems
-  description: Jörg Klems
+  description: Install cobbler including cobbler web from source
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
